@@ -1,0 +1,1 @@
+.TH CONV "1"  "May 2014" "BINDECHEXASCII" "convert ASCII, binary, decimal, hexadecimal and prints results on the in screen"

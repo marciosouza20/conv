@@ -1,0 +1,34 @@
+Description: Include hardening options and change the name of the binary to bindechexascii
+Author: Marcio de Souza Oliveira <m.desouza20@gmail.com>
+Last-Update: 2014-05-26
+Index: bindechexascii-0.0+20140524.git7dcd86/Makefile
+===================================================================
+--- bindechexascii-0.0+20140524.git7dcd86.orig/Makefile
++++ bindechexascii-0.0+20140524.git7dcd86/Makefile
+@@ -1,11 +1,11 @@
+ ################################################
+ 
+-BIN		:= conv
+-OBJ		:= conv.o
++BIN		:= bindechexascii
++OBJ		:= bindechexascii.o
+ SRC		:= conv.c
+ 
+ CC		:= gcc
+-CFLAGS		:= -g -march=native
++CFLAGS+		:= -g -march=native
+ LFLAGS		:=
+ 
+ ################################################
+@@ -13,9 +13,9 @@ LFLAGS		:=
+ all: $(BIN)
+ 
+ $(BIN): $(OBJ)
+-	$(CC) $(LFLAGS) $(OBJ) -o $(BIN)
++	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) $(LFLAGS) $(OBJ) -o $(BIN)
+ $(OBJ): $(SRC)
+-	$(CC) $(CFLAGS) -c $(SRC) -o $(OBJ)
++	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) -c $(SRC) -o $(OBJ)
+ 
+ clean:
+ 	rm -f $(BIN) $(OBJ)
